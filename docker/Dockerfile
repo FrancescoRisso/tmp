@@ -24,4 +24,4 @@ COPY ./docker/docker_run_cron.sh /pmdUtils/start.sh
 
 RUN ls -la /pmdUtils | echo;
 
-CMD /pmdUtils/start.sh
+CMD bash /pmdUtils/start.sh
