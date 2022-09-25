@@ -1,0 +1,31 @@
+version: "3"
+
+volumes:
+    settings:
+
+services:
+    # copy-settings:
+    #     build:
+    #         context: .
+    #         dockerfile: settings.Dockerfile
+    #     volumes:
+    #         - settings:/settings
+    #     deploy:
+    #         restart_policy:
+    #             condition: "no"
+
+    polito-material-downloader:
+        build:
+            context: ../
+            dockerfile: ./docker/Dockerfile
+        # depends_on:
+        #     - "copy-settings"
+        deploy:
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+        # environment:
+        #     - cronSettings=* * * * *
+        volumes:
+            - settings:/PolitoMaterialDownload/settings
