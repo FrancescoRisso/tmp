@@ -22,4 +22,6 @@ RUN pip3 install -r requirements.txt
 
 COPY ./docker/docker_run_cron.sh /pmdUtils/start.sh
 
+RUN ls -la /pmdUtils | echo;
+
 CMD /pmdUtils/start.sh
